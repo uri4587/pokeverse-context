@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import { PokemonCard } from '../components';
+import { FavoritesContext } from '../FavoritesProvider';
 
 function Home({ pokemonList }) {
   const [filteredPokemon, setFilteredPokemon] = useState([]);
   const [search, setSearch] = useState('');
+  const {favorites} = useContext(FavoritesContext)
 
+  console.log(favorites)
   useEffect(() => {
     setFilteredPokemon(
       pokemonList.filter((pokemon) =>

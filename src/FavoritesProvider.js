@@ -7,7 +7,10 @@ function FavoritesProvider({ children }) {
 
   function addFavorite(favorite) {
     // copy the current favorites array and add the new favorite to it
+    console.log("ADDED!")
+    
     setFavorites([...favorites, favorite]);
+  
   }
 
   function removeFavorite(name) {
@@ -16,7 +19,7 @@ function FavoritesProvider({ children }) {
   }
 
   return (
-    <FavoritesContext.Provider>
+    <FavoritesContext.Provider value={{favorites, addFavorite, removeFavorite}}>
       {children}
     </FavoritesContext.Provider>
   );
